@@ -1,12 +1,8 @@
 use LWP::Simple;
 
-my $macAddress;
 my $contents;
 
-print "\nPlease enter your MAC address: \n\n";
-chomp($macAddress = <STDIN>);
-
-$contents = get("http://api.macvendors.com/$macAddress");
+$contents = get("http://api.macvendors.com/@ARGV[0]");
 
 if ($contents) {
   print "\nVendor: $contents\n\n";
